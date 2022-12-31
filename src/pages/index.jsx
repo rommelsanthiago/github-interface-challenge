@@ -1,21 +1,87 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import Head from "next/head";
+import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ['latin'] })
+import Card from "../components/Card";
+import api from "../utils/api";
+import * as S from './styles';
+import { useState } from "react";
 
-export default function Home() {
+const Home = ({ users, nextPage }) => {
+  const [since, setSince] = useState();
+  const [name, setName] = useState();
+  const router = useRouter();
+
+  const usersSince = (e) => {
+    setSince(e.target.value)
+    console.log(since)
+  };
+
+  const usersByname = (e) => {
+    setName(e.target.value)
+    console.log(name)
+  };
+
   return (
     <>
       <Head>
         <title>USERS GITHUB</title>
-        <meta name="description" content="Github front-and-interface challenge" />
+        <meta
+          name="description"
+          content="Github front-and interface challenge"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/github.ico" />
       </Head>
-      <main>
+      <S.Main>
         <h1>Users Github</h1>
-      </main>
+        <form onSubmit={usersSince}>
+          <input 
+            name={"since"}
+            type="number" 
+            onChange={usersSince}
+            placeholder="Show users since"
+          />
+          <button 
+            type="button" 
+            onClick={() => router.push(`/users/${since}`)}
+          >Send</button>
+        </form>
+        <form onSubmit={usersByname}>
+          <input 
+            name={"name"}
+            type="text" 
+            onChange={usersByname}
+            placeholder="Search user by name"
+          />
+          <button 
+            type="button"
+            onClick={() => router.push(`/user/${name}`)}
+          >Send</button>
+        </form>
+        <ul>
+          {users.map((user) => (
+            <Card key={user.id} user={user} pathHome={'/user'}/>
+          ))}
+        </ul>
+      </S.Main>
     </>
-  )
+  );
 }
+
+export const getStaticProps = async () => {
+  const response = await fetch(api);
+  const data = await response.json();
+
+  const users = await data.users.map((user) => user);
+  const nextPage = data.nextPage;
+
+  return {
+    props: {
+      users: users,
+      nextPage: nextPage
+    },
+    revalidate: 50,
+  };
+};
+
+export default Home;
