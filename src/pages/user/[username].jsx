@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useRouter } from 'next/router';
 
 import api from '../../utils/api';
-import * as S from './styles'
+import * as S from '../../styles/user'
 import CardRepos from '../../components/CardRepos';
 
 const User = ({repositories, user}) => {

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import Card from "../components/Card";
 import api from "../utils/api";
-import * as S from './styles';
+import * as S from '../styles/index';
 import { useState } from "react";
 
 const Home = ({ users, nextPage }) => {

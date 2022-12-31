@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import api from "../../utils/api";
 import Card from "../../components/Card";
-import * as S from "./styles";
+import * as S from "../../styles/users";
 
 const Users = ({ users, nextPage }) => {
   // console.log(users);
