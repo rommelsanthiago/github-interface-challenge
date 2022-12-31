@@ -34,3 +34,16 @@ export const Form = styled.form`
 export const ButtonSend = styled(Button)`
 
 `
+
+export const ButtonNext = styled(Button)`
+    font-size: 1.5em;
+    float: right;
+    margin: 0 1em 1.5em 0;
+
+    @media (max-width: 520px) {
+        width: 85%;
+        float: none;
+        margin-top: 1em;
+        margin-left: 1.2em;
+    }
+`

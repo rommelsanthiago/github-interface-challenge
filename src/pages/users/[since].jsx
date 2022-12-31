@@ -7,7 +7,7 @@ import Card from "../../components/Card";
 import * as S from "../../styles/users";
 
 const Users = ({ users, nextPage }) => {
-  // console.log(users);
+  const page = +nextPage.slice((nextPage.length - 14), (nextPage.length - 12));
   const router = useRouter();
   return (
     <>
@@ -30,6 +30,9 @@ const Users = ({ users, nextPage }) => {
             <Card key={user.id} user={user} pathUsers={'/user'}/>
           ))}
         </ul>
+        <S.ButtonNext onClick={() => router.push(`/users/${page}`)}>
+          Next Page
+        </S.ButtonNext>
       </S.Main>
     </>
   );

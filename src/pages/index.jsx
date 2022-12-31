@@ -11,6 +11,8 @@ const Home = ({ users, nextPage }) => {
   const [name, setName] = useState();
   const router = useRouter();
 
+  const page = +nextPage.slice((nextPage.length - 14), (nextPage.length - 12));
+
   const usersSince = (e) => {
     setSince(e.target.value)
   };
@@ -61,6 +63,9 @@ const Home = ({ users, nextPage }) => {
             <Card key={user.id} user={user} pathHome={'/user'}/>
           ))}
         </ul>
+        <S.ButtonNext onClick={() => router.push(`/users/${page}`)}>
+          Next Page
+        </S.ButtonNext>
       </S.Main>
     </>
   );
