@@ -7,7 +7,7 @@ import Card from "../../components/Card";
 import * as S from "./styles";
 
 const Users = ({ users, nextPage }) => {
-  console.log(users);
+  // console.log(users);
   const router = useRouter();
   return (
     <>

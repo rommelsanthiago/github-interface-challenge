@@ -7,8 +7,8 @@ import * as S from './styles'
 import CardRepos from '../../components/CardRepos';
 
 const User = ({repositories, user}) => {
-    console.log('repositories:', repositories)
-    console.log('user:', user)
+    // console.log('repositories:', repositories)
+    // console.log('user:', user)
     const created_at = moment(user.created_at).format('LL')
     const router = useRouter()
     

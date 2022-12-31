@@ -13,12 +13,10 @@ const Home = ({ users, nextPage }) => {
 
   const usersSince = (e) => {
     setSince(e.target.value)
-    console.log(since)
   };
 
   const usersByname = (e) => {
     setName(e.target.value)
-    console.log(name)
   };
 
   return (
@@ -34,30 +32,30 @@ const Home = ({ users, nextPage }) => {
       </Head>
       <S.Main>
         <h1>Users Github</h1>
-        <form onSubmit={usersSince}>
+        <S.Form onSubmit={usersSince}>
           <input 
             name={"since"}
             type="number" 
             onChange={usersSince}
             placeholder="Show users since"
           />
-          <button 
+          <S.ButtonSend 
             type="button" 
             onClick={() => router.push(`/users/${since}`)}
-          >Send</button>
-        </form>
-        <form onSubmit={usersByname}>
+          >Send</S.ButtonSend>
+        </S.Form>
+        <S.Form onSubmit={usersByname}>
           <input 
             name={"name"}
             type="text" 
             onChange={usersByname}
-            placeholder="Search user by name"
+            placeholder="Search user by login name"
           />
-          <button 
+          <S.ButtonSend 
             type="button"
             onClick={() => router.push(`/user/${name}`)}
-          >Send</button>
-        </form>
+          >Send</S.ButtonSend>
+        </S.Form>
         <ul>
           {users.map((user) => (
             <Card key={user.id} user={user} pathHome={'/user'}/>
