@@ -11,7 +11,9 @@ const Home = ({ users, nextPage }) => {
   const [name, setName] = useState();
   const router = useRouter();
 
-  const page = +nextPage.slice((nextPage.length - 14), (nextPage.length - 12));
+  const page = +nextPage.slice(nextPage.length - 2);
+
+  console.log(page, nextPage)
 
   const usersSince = (e) => {
     setSince(e.target.value)
