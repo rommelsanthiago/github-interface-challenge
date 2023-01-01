@@ -13,8 +13,6 @@ const Home = ({ users, nextPage }) => {
 
   const page = +nextPage.slice(nextPage.length - 2);
 
-  console.log(page, nextPage)
-
   const usersSince = (e) => {
     setSince(e.target.value)
   };
