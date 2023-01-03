@@ -1,3 +1,3 @@
-const api = "https://github-api-challenge.adaptable.app";
+const api = "https://github-api-challenge.onrender.com";
 
 export default api;
