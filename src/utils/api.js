@@ -1,3 +1,3 @@
-const api = process.env.NEXT_PUBLIC_URL;
+const api = "https://github-api-challenge.adaptable.app";
 
 export default api;

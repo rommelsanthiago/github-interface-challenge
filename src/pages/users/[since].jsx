@@ -51,7 +51,7 @@ export const getStaticProps = async (context) => {
       users: users,
       nextPage: nextPage,
     },
-    revalidate: 50,
+    revalidate: 30,
   };
 };
 

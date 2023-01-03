@@ -49,7 +49,7 @@ export const getStaticProps = async(context) => {
       repositories: data,
       user: user
     }, 
-    revalidate: 60 * 60 * 12
+    revalidate: 30
   }
 }
 
